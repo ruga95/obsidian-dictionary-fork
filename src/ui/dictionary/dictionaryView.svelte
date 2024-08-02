@@ -82,18 +82,24 @@
     }
   }
 
-  addEventListener("obsidian-dictionary-plugin-search", (event: CustomEvent) => {
-    query = event.detail.query;
-    search();
-  });
+  addEventListener(
+    "obsidian-dictionary-plugin-search",
+    (event: CustomEvent) => {
+      query = event.detail.query;
+      search();
+    }
+  );
 
   addEventListener("dictionary-focus-on-search", () => {
-    const el = document.querySelector("#dictionary-search-input") as HTMLInputElement;
+    const el = document.querySelector(
+      "#dictionary-search-input"
+    ) as HTMLInputElement;
     el.focus();
-  })
+  });
 </script>
 
 <div class="nav-buttons-container">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     id="languageModal"
     class="nav-action-button"
@@ -101,6 +107,7 @@
     bind:this={buttons[0]}
     on:click={languageModal}
   />
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     id="apiModal"
     class="nav-action-button"
@@ -108,6 +115,7 @@
     bind:this={buttons[1]}
     on:click={apiModal}
   />
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     id="openAndCloseAll"
     class="nav-action-button"
@@ -116,6 +124,7 @@
     bind:this={buttons[2]}
     on:click={toggleContainer}
   />
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     id="matchCaseBtn"
     class="nav-action-button"
@@ -124,6 +133,7 @@
     bind:this={buttons[3]}
     on:click={() => (matchCase = !matchCase)}
   />
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     id="localDictionaryBuilder"
     class="nav-action-button"
@@ -143,6 +153,7 @@
     on:keydown={debouncedSearch}
   />
   {#if query}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div
       class="search-input-clear-button"
       on:click={clear}

@@ -14,6 +14,7 @@
 
 <div class="main">
   {#if audio}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="opener" class:open on:click={() => (open = !open)}>
       <div class="tree-item-icon collapse-icon" style="">
         <svg viewBox="0 0 100 100" class="right-triangle" width="8" height="8"

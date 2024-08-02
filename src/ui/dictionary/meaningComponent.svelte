@@ -27,6 +27,7 @@
 </script>
 
 <div class="main">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div class="opener" class:open on:click={() => (open = !open)}>
     <div class="tree-item-icon collapse-icon" style="">
       <svg viewBox="0 0 100 100" class="right-triangle" width="8" height="8"
@@ -60,6 +61,7 @@
               <div class="label">{t("Synonyms:")}</div>
               <p>
                 {#each definition.synonyms as synonym, i}
+                  <!-- svelte-ignore a11y-click-events-have-key-events -->
                   <span class="synonym" on:click={() => wordCopy(synonym)}
                     >{synonym}</span
                   >{#if i < definition.synonyms.length - 1}{", "}{/if}
@@ -72,6 +74,7 @@
               <div class="label">{t("Antonyms:")}</div>
               <p>
                 {#each definition.antonyms as antonym, i}
+                  <!-- svelte-ignore a11y-click-events-have-key-events -->
                   <span class="antonym" on:click={() => wordCopy(antonym)}
                     >{antonym}</span
                   >{#if i < definition.antonyms.length - 1}{", "}{/if}

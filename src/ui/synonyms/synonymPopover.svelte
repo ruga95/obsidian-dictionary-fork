@@ -40,6 +40,7 @@
   in:fade="{{ duration: 50 }}"
 >
   {#each synonyms as synonym}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="dict-s-popover__select-option" on:click={() => onSelect(synonym.word)}>
       <div class="dict-s-popover__select-label">
         <div class="dict-s-popover__term">{synonym.word}</div>
