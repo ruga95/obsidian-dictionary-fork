@@ -9,7 +9,7 @@ import SettingsTab from 'src/ui/settings/settingsTab';
 import DictionaryView from 'src/ui/dictionary/dictionaryView';
 import { DEFAULT_SETTINGS, VIEW_TYPE } from 'src/_constants';
 import APIManager from 'src/apiManager';
-import { DEFAULT_CACHE,  RFC } from './_constants';
+import { DEFAULT_CACHE, RFC } from './_constants';
 import { Coords, SynonymPopover } from 'src/ui/synonyms/synonymPopover';
 import handleContextMenu from 'src/ui/customContextMenu';
 import { addIcons } from 'src/ui/icons';
@@ -125,7 +125,7 @@ export default class DictionaryPlugin extends Plugin {
         });
 
         this.localDictionary = new LocalDictionaryBuilder(this);
-        
+
         this.registerEvent(this.app.workspace.on('editor-menu', this.handleContextMenuHelper));
 
         this.registerEvent(this.app.workspace.on('file-open', (file) => {
@@ -209,6 +209,7 @@ export default class DictionaryPlugin extends Plugin {
 
     async loadCache(): Promise<void> {
         this.cache = Object.assign({}, DEFAULT_CACHE, await this.loadCacheFromDisk());
+        console.log("loadCache :", this.cache);        
     }
 
     async loadCacheFromDisk(): Promise<DictionaryCache> {
