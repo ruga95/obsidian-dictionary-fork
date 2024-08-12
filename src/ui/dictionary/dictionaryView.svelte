@@ -8,13 +8,13 @@
   import ErrorComponent from "./errorComponent.svelte";
   import OriginComponent from "./originComponent.svelte";
   import t from "src/l10n/helpers";
-  import { debounce, setIcon } from "obsidian";
+  import { debounce, Notice, setIcon } from "obsidian";
   import { onMount } from "svelte";
 
   export let manager: APIManager;
   export let localDictionary: LocalDictionaryBuilder;
-
   export let query: string = "";
+
   let lastQuery: string = null;
   let promise: Promise<DictionaryWord>;
   let buttons: HTMLElement[] = [];
@@ -42,10 +42,12 @@
   }
 
   function languageModal() {
+    new Notice("Dictionary > Change Language", 2000);
     dispatchEvent(new Event("dictionary-open-language-switcher"));
   }
 
   function apiModal() {
+    new Notice("Dictionary > Change Provider", 2000);
     dispatchEvent(new Event("dictionary-open-api-switcher"));
   }
 
@@ -205,6 +207,7 @@
     height: calc(100% - 5rem);
     overflow-y: auto;
   }
+
   .results {
     display: flex;
     flex-wrap: wrap;

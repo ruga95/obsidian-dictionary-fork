@@ -36,6 +36,9 @@ export default class DictionaryPlugin extends Plugin {
 
         this.manager = new APIManager(this);
 
+        console.log("manager :", this.manager.definitionProvider, this.manager.synonymProvider);
+        
+
         this.registerView(VIEW_TYPE, (leaf) => {
             return new DictionaryView(leaf, this);
         });
