@@ -12,13 +12,8 @@
     "paths": {
       "src": ["src/*"]
     },
-    "lib": [
-      "dom",
-      "es5",
-      "scripthost",
-      "es2015"
-    ],
+    "lib": ["dom", "es5", "scripthost", "es2015"]
   },
   "include": ["**/*.ts"],
-  "exclude": ["node_modules/*"],
+  "exclude": ["node_modules/*"]
 }
